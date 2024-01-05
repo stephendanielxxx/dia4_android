@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         Log.i("On Create", "On Create")
 
         //create intent to open second activity
-        val intent = Intent(this@MainActivity, SecondActivity::class.java)
+        val intent = Intent(this@MainActivity, ComponentActivity::class.java)
         intent.putExtra("username", "Andre")
         startActivity(intent)
 //        finish()

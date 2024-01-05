@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DIA Android</string>
+    <string name="hello_world">Hello World</string>
+    <string name="change_text_view">Change text view</string>
+    <string name="input_text_here">Input text here ...</string>
+    <string name="enable_button">Enable Button</string>
+    <string name="blue">Blue</string>
+    <string name="red">Red</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="show_snack_bar">Show snack bar</string>
 </resources>
