@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textColor="@color/Red"
         android:textStyle="bold|italic"/>
     
@@ -25,6 +25,7 @@
         android:layout_height="48dp"
         android:backgroundTint="@color/Red"
         android:layout_marginTop="12dp"
+        android:textSize="18sp"
         android:text="@string/change_text_view"/>
     
     <EditText
@@ -40,7 +41,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="12dp"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:src="@drawable/profile"
+        android:background="@drawable/red_circle"/>
 
     <CheckBox
         android:id="@+id/cbButton"
@@ -80,5 +83,19 @@
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:text="@string/show_snack_bar"/>
+
+    <Button
+        android:id="@+id/btnFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/show_fragment"/>
+
+    <Button
+        android:id="@+id/btnBottomNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/show_bottom_navigation"/>
 
 </LinearLayout>

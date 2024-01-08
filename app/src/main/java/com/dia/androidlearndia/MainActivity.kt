@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(R.layout.activity_main)
 
         Log.i("On Create", "On Create")
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this@MainActivity, ComponentActivity::class.java)
         intent.putExtra("username", "Andre")
         startActivity(intent)
-//        finish()
+        finish()
     }
 
     override fun onStart() {

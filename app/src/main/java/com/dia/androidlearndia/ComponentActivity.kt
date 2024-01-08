@@ -1,9 +1,11 @@
 package com.dia.androidlearndia
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import com.dia.androidlearndia.bottomnavigation.HomeActivity
 import com.dia.androidlearndia.databinding.ActivityComponentActivityBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -55,6 +57,16 @@ class ComponentActivity : AppCompatActivity() {
             Snackbar.make(binding.btnSnackBar, "Snack bar is showed", Snackbar.LENGTH_LONG).setAction("OKE"){
                 binding.tvText.text = "Snack bar is clicked"
             }.show()
+        }
+
+        binding.btnFragment.setOnClickListener {
+            val intent = Intent(this@ComponentActivity, FragmentActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnBottomNavigation.setOnClickListener {
+            val homeIntent = Intent(this@ComponentActivity, HomeActivity::class.java)
+            startActivity(homeIntent)
         }
     }
 }

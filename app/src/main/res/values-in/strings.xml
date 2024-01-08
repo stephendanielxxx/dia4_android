@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DIA Android</string>
+    <string name="hello_world">Halo Dunia</string>
+    <string name="change_text_view">Ubah Text View</string>
+    <string name="input_text_here">Masukan text disini</string>
+    <string name="enable_button">Aktifkan tombol</string>
+    <string name="blue">Biru</string>
+    <string name="red">Merah</string>
+    <string name="dark_mode">Mode Malam</string>
+    <string name="show_snack_bar">Tampilkan Snack Bar</string>
+    <string name="hello_blank_fragment">Halo Fragment Kosong</string>
+    <string name="show_fragment">Show Fragment</string>
+    <string name="show_bottom_navigation">Show Bottom Navigation</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="favorite">Favorite</string>
+</resources>
