@@ -48,6 +48,8 @@ dependencies {
 
     //add splash screen dependency
     implementation("androidx.core:core-splashscreen:1.0.1")
+    //add glide dependency
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
