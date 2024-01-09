@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.dia.androidlearndia.bottomnavigation.HomeActivity
 import com.dia.androidlearndia.databinding.ActivityComponentActivityBinding
+import com.dia.androidlearndia.login.LoginActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ComponentActivity : AppCompatActivity() {
@@ -67,6 +68,11 @@ class ComponentActivity : AppCompatActivity() {
         binding.btnBottomNavigation.setOnClickListener {
             val homeIntent = Intent(this@ComponentActivity, HomeActivity::class.java)
             startActivity(homeIntent)
+        }
+
+        binding.btnLogin.setOnClickListener {
+            val login = Intent(this@ComponentActivity, LoginActivity::class.java)
+            startActivity(login)
         }
     }
 }

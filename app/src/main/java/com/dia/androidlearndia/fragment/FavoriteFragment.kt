@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dia.androidlearndia.R
 import com.dia.androidlearndia.databinding.FragmentFavoriteBinding
 import com.dia.androidlearndia.rv.PokemonAdapter
 import com.dia.androidlearndia.rv.PokemonModel
+import com.dia.androidlearndia.viewmodel.FavoriteViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +31,9 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
 
     private lateinit var binding: FragmentFavoriteBinding
     private lateinit var pokemonAdapter: PokemonAdapter
+
+    //initialize view model
+    private val viewModel: FavoriteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,12 +74,15 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
 
         pokemonAdapter = PokemonAdapter(pokemonList, this)
         binding.rvPokemon.adapter = pokemonAdapter
+
+        setObserver()
     }
 
-    suspend fun getErrorView(){
-
+    private fun setObserver() {
+        viewModel.pokemonName.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
     }
-
 
     companion object {
         /**
@@ -99,5 +106,6 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
 
     override fun onPokemonSelected(pokemonModel: PokemonModel) {
         Log.i("Logger", "Pokemon selected $pokemonModel")
+        viewModel.printPokemonName(pokemonModel.pokemonName)
     }
 }
