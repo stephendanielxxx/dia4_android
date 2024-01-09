@@ -3,6 +3,7 @@
     <item
         android:id="@+id/homeMenu"
         android:enabled="true"
+        android:icon="@drawable/profile"
         android:title="@string/home"/>
     <item
         android:id="@+id/profileMenu"
@@ -10,7 +11,8 @@
         android:icon="@drawable/profile"
         android:title="@string/profile"/>
     <item
-        android:id="@+id/FavoriteMenu"
+        android:id="@+id/favoriteMenu"
         android:enabled="true"
+        android:icon="@drawable/profile"
         android:title="@string/favorite"/>
 </menu>
