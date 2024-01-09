@@ -7,19 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dia.androidlearndia.R
 import com.dia.androidlearndia.databinding.FragmentFavoriteBinding
 import com.dia.androidlearndia.rv.PokemonAdapter
 import com.dia.androidlearndia.rv.PokemonModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +31,6 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
     private lateinit var binding: FragmentFavoriteBinding
     private lateinit var pokemonAdapter: PokemonAdapter
 
-    private val viewModel: FavoriteViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -79,30 +70,12 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
 
         pokemonAdapter = PokemonAdapter(pokemonList, this)
         binding.rvPokemon.adapter = pokemonAdapter
-
-        setObserver()
-
-        val scope = CoroutineScope(Job() + Dispatchers.Main)
-        scope.launch {
-            getErrorView()
-        }
-
-        val test = "email@gmail.com"
-        val isValid = test.contains("@")
-        val string = resources.getString(R.string.favorite)
-        Log.i("logger","is valid $isValid, string = $string")
     }
 
     suspend fun getErrorView(){
 
     }
 
-    private fun setObserver() {
-        viewModel.pokemonStatus.observe(viewLifecycleOwner){
-            Log.i("Logger", "Pokemon status $it")
-            Toast.makeText(requireContext(), "Pokemon status $it", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     companion object {
         /**
@@ -126,6 +99,5 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
 
     override fun onPokemonSelected(pokemonModel: PokemonModel) {
         Log.i("Logger", "Pokemon selected $pokemonModel")
-        viewModel.changePokemonStatus(pokemonModel.pokemonName)
     }
 }
