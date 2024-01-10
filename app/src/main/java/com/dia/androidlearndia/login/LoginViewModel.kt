@@ -4,13 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dia.androidlearndia.retrofit.ApiService
 import com.dia.androidlearndia.retrofit.LoginData
 import com.dia.androidlearndia.retrofit.LoginResponse
 import com.dia.androidlearndia.retrofit.RetrofitHelper
 import com.google.gson.Gson
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel: ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val loginRepository: LoginRepository,
+): ViewModel() {
 
     private val loginValidationLiveData = MutableLiveData<LoginValidationData>()
     val loginValidation: LiveData<LoginValidationData> = loginValidationLiveData
@@ -18,13 +24,14 @@ class LoginViewModel: ViewModel() {
     private val loginDataLiveData = MutableLiveData<LoginData>()
     val loginData: LiveData<LoginData> = loginDataLiveData
 
-    private val apiService = RetrofitHelper.apiService
+//    private val apiService = RetrofitHelper.apiService
+//    private lateinit var apiService: ApiService
 
     fun login(phoneNumber: String, password: String){
         if(validatePhoneNumber(phoneNumber) && validatePassword(password)){
             //request api using coroutines
             viewModelScope.launch {
-                val loginResponse = apiService.login(phoneNumber, password)
+                val loginResponse = loginRepository.login(phoneNumber, password)
                 if(loginResponse.isSuccessful){
                     val response = loginResponse.body()
                     response?.let {

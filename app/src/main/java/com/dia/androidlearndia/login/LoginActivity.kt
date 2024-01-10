@@ -9,7 +9,9 @@ import androidx.activity.viewModels
 import com.dia.androidlearndia.R
 import com.dia.androidlearndia.bottomnavigation.HomeActivity
 import com.dia.androidlearndia.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()

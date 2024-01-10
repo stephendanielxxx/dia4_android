@@ -13,6 +13,7 @@ import com.dia.androidlearndia.databinding.FragmentFavoriteBinding
 import com.dia.androidlearndia.rv.PokemonAdapter
 import com.dia.androidlearndia.rv.PokemonModel
 import com.dia.androidlearndia.viewmodel.FavoriteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FavoriteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@AndroidEntryPoint
 class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -107,5 +109,6 @@ class FavoriteFragment : Fragment(), PokemonAdapter.PokemonCallback {
     override fun onPokemonSelected(pokemonModel: PokemonModel) {
         Log.i("Logger", "Pokemon selected $pokemonModel")
         viewModel.printPokemonName(pokemonModel.pokemonName)
+        viewModel.getPokemonName()
     }
 }

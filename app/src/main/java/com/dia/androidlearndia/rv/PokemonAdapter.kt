@@ -37,8 +37,8 @@ class PokemonAdapter(
 //                ivPokemon.setImageResource(R.drawable.pokemon)
 //                tvName.text = pokemon.pokemonName
 //            }
-//            binding.ivPokemon.setImageResource(R.drawable.pokemon)
-            Glide.with(binding.ivPokemon).load(pokemon.pokemonImage).into(binding.ivPokemon)
+            binding.ivPokemon.setImageResource(R.drawable.pokemon)
+//            Glide.with(binding.ivPokemon).load(pokemon.pokemonImage).into(binding.ivPokemon)
             binding.tvName.text = pokemon.pokemonName
             binding.tvDesc.text = pokemon.pokemonDesc
         }

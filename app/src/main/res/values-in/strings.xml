@@ -18,4 +18,8 @@
     <string name="login">Login</string>
     <string name="phone_number">Phone number</string>
     <string name="password">Password</string>
+    <string name="pokemon_name">Pokemon Name</string>
+    <string name="description">Description</string>
+    <string name="color">Color</string>
+    <string name="save_pokemon">Save Pokemon</string>
 </resources>

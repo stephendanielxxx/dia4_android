@@ -8,7 +8,9 @@ import com.dia.androidlearndia.databinding.ActivityHomeBinding
 import com.dia.androidlearndia.fragment.FavoriteFragment
 import com.dia.androidlearndia.fragment.HomeFragment
 import com.dia.androidlearndia.fragment.ProfileFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
